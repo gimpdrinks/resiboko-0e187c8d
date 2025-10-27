@@ -1,74 +1,74 @@
 import jeepneyIcon from "@/assets/jeepney-icon.png";
 import foodIcon from "@/assets/filipino-food-icon.png";
-import purchasesIcon from "@/assets/common-purchases-icon.png";
-import { Receipt, Heart, Music, Sparkles, Home, MoreHorizontal } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+import shoppingIcon from "@/assets/common-purchases-icon.png";
+import groceriesIcon from "@/assets/groceries-icon.png";
+import utilitiesIcon from "@/assets/utilities-icon.png";
+import entertainmentIcon from "@/assets/entertainment-icon.png";
+import healthIcon from "@/assets/health-icon.png";
+import travelIcon from "@/assets/travel-icon.png";
+import rentIcon from "@/assets/rent-icon.png";
 
 interface Category {
   name: string;
-  icon: string | LucideIcon;
+  icon: string;
   color: string;
-  type: "image" | "lucide";
-  alt?: string;
+  alt: string;
 }
 
 const categories: Category[] = [
   { 
-    name: "Transport", 
-    icon: jeepneyIcon, 
-    color: "blue", 
-    type: "image",
-    alt: "Jeepney rides and transportation expenses"
-  },
-  { 
-    name: "Food & Dining", 
+    name: "Food & Drink", 
     icon: foodIcon, 
-    color: "green", 
-    type: "image",
+    color: "green",
     alt: "Filipino food and dining expenses"
   },
   { 
+    name: "Groceries", 
+    icon: groceriesIcon, 
+    color: "amber",
+    alt: "Sari-sari store and grocery shopping"
+  },
+  { 
+    name: "Transportation", 
+    icon: jeepneyIcon, 
+    color: "blue",
+    alt: "Jeepney, tricycle and transportation expenses"
+  },
+  { 
     name: "Shopping", 
-    icon: purchasesIcon, 
-    color: "amber", 
-    type: "image",
+    icon: shoppingIcon, 
+    color: "pink",
     alt: "Shopping and purchases"
   },
   { 
-    name: "Bills", 
-    icon: Receipt, 
-    color: "purple", 
-    type: "lucide"
-  },
-  { 
-    name: "Healthcare", 
-    icon: Heart, 
-    color: "red", 
-    type: "lucide"
+    name: "Utilities", 
+    icon: utilitiesIcon, 
+    color: "yellow",
+    alt: "Electricity, water, and utility bills"
   },
   { 
     name: "Entertainment", 
-    icon: Music, 
-    color: "pink", 
-    type: "lucide"
+    icon: entertainmentIcon, 
+    color: "purple",
+    alt: "Videoke, leisure and entertainment expenses"
   },
   { 
-    name: "Personal Care", 
-    icon: Sparkles, 
-    color: "teal", 
-    type: "lucide"
+    name: "Health & Wellness", 
+    icon: healthIcon, 
+    color: "red",
+    alt: "Pharmacy, healthcare and wellness expenses"
   },
   { 
-    name: "Home & Living", 
-    icon: Home, 
-    color: "indigo", 
-    type: "lucide"
+    name: "Travel", 
+    icon: travelIcon, 
+    color: "teal",
+    alt: "Travel and transportation expenses"
   },
   { 
-    name: "Others", 
-    icon: MoreHorizontal, 
-    color: "gray", 
-    type: "lucide"
+    name: "Rent", 
+    icon: rentIcon, 
+    color: "indigo",
+    alt: "Housing and rent expenses"
   },
 ];
 
@@ -82,25 +82,11 @@ const getColorClasses = (color: string) => {
     pink: "bg-pink-500/10 border-pink-500 hover:bg-pink-500/20",
     teal: "bg-teal-500/10 border-teal-500 hover:bg-teal-500/20",
     indigo: "bg-indigo-500/10 border-indigo-500 hover:bg-indigo-500/20",
-    gray: "bg-gray-500/10 border-gray-500 hover:bg-gray-500/20",
+    yellow: "bg-yellow-500/10 border-yellow-500 hover:bg-yellow-500/20",
   };
-  return colorMap[color] || colorMap.gray;
+  return colorMap[color] || colorMap.blue;
 };
 
-const getIconColor = (color: string) => {
-  const colorMap: Record<string, string> = {
-    blue: "text-blue-500",
-    green: "text-green-500",
-    amber: "text-amber-500",
-    purple: "text-purple-500",
-    red: "text-red-500",
-    pink: "text-pink-500",
-    teal: "text-teal-500",
-    indigo: "text-indigo-500",
-    gray: "text-gray-500",
-  };
-  return colorMap[color] || colorMap.gray;
-};
 
 const FilipinoImagery = () => {
   return (
@@ -124,24 +110,12 @@ const FilipinoImagery = () => {
                   ${getColorClasses(category.color)}
                 `}
               >
-                {category.type === "image" ? (
-                  <img 
-                    src={category.icon as string} 
-                    alt={category.alt || `${category.name} expenses`}
-                    className="w-12 h-12 sm:w-14 sm:h-14 object-contain"
-                    loading="lazy"
-                  />
-                ) : (
-                  (() => {
-                    const IconComponent = category.icon as LucideIcon;
-                    return (
-                      <IconComponent 
-                        className={`w-10 h-10 sm:w-12 sm:h-12 ${getIconColor(category.color)}`}
-                        aria-label={`${category.name} expenses`}
-                      />
-                    );
-                  })()
-                )}
+                <img 
+                  src={category.icon} 
+                  alt={category.alt}
+                  className="w-12 h-12 sm:w-14 sm:h-14 object-contain"
+                  loading="lazy"
+                />
               </div>
               <p className="text-xs sm:text-sm text-muted-foreground text-center font-medium">
                 {category.name}
