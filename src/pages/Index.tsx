@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import FilipinoImagery from "@/components/FilipinoImagery";
 import Features from "@/components/Features";
 import HowItWorks from "@/components/HowItWorks";
 import ResultsShowcase from "@/components/ResultsShowcase";
@@ -9,8 +10,9 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <main className="min-h-screen">
       <Hero />
+      <FilipinoImagery />
       <Features />
       <HowItWorks />
       <ResultsShowcase />
@@ -18,7 +20,7 @@ const Index = () => {
       <FAQ />
       <CTA />
       <Footer />
-    </div>
+    </main>
   );
 };
 

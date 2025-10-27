@@ -38,11 +38,11 @@ const faqs = [
 
 const FAQ = () => {
   return (
-    <section id="faq" className="py-20 bg-background">
+    <section id="faq" className="py-20 bg-background" aria-labelledby="faq-heading">
       <div className="container px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-foreground mb-4">
+            <h2 id="faq-heading" className="text-4xl font-bold text-foreground mb-4">
               Mga Madalas Itanong
             </h2>
             <p className="text-xl text-muted-foreground">

@@ -36,10 +36,10 @@ const benefits = [
 
 const Features = () => {
   return (
-    <section id="features" className="py-20 bg-background">
+    <section id="features" className="py-20 bg-background" aria-labelledby="features-heading">
       <div className="container px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl font-bold text-foreground mb-4">
+          <h2 id="features-heading" className="text-4xl font-bold text-foreground mb-4">
             How ResiboKo Gives You Back Time & Control
           </h2>
           <p className="text-xl text-muted-foreground">

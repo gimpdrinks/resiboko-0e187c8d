@@ -9,7 +9,7 @@ const Hero = () => {
 
   return (
     <>
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary-light to-primary">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary-light to-primary" aria-label="Hero section">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-1/2 -right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse"></div>
@@ -35,7 +35,12 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" variant="hero" className="text-lg px-8 py-6">
+              <Button 
+                size="lg" 
+                variant="hero" 
+                className="text-lg px-8 py-6"
+                aria-label="Start tracking expenses for free"
+              >
                 Start Tracking for Free
               </Button>
               <Button 
@@ -43,6 +48,7 @@ const Hero = () => {
                 variant="outline" 
                 className="text-lg px-8 py-6 bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 hover:text-white"
                 onClick={() => setDemoOpen(true)}
+                aria-label="See how ResiboKo works"
               >
                 See How It Works
               </Button>
@@ -88,9 +94,10 @@ const Hero = () => {
                 src={heroImage} 
                 alt="ResiboKo app interface showing AI-powered receipt scanning" 
                 className="w-full h-auto object-cover"
+                loading="eager"
               />
               {/* Glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-t from-accent/20 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-accent/20 to-transparent" aria-hidden="true"></div>
             </div>
             {/* Floating card effect */}
             <div className="absolute -bottom-6 -left-6 bg-white rounded-xl p-4 shadow-xl hidden md:block">

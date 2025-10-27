@@ -42,10 +42,10 @@ const pricingTiers = [
 
 const Pricing = () => {
   return (
-    <section id="pricing" className="py-20 bg-secondary">
+    <section id="pricing" className="py-20 bg-secondary" aria-labelledby="pricing-heading">
       <div className="container px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl font-bold text-foreground mb-4">
+          <h2 id="pricing-heading" className="text-4xl font-bold text-foreground mb-4">
             Simple Pricing for Peace of Mind
           </h2>
           <p className="text-xl text-muted-foreground">
@@ -80,7 +80,7 @@ const Pricing = () => {
               ))}
             </ul>
 
-            <Button variant="outline" className="w-full" size="lg">
+            <Button variant="outline" className="w-full" size="lg" aria-label="Start with free plan">
               Start Free
             </Button>
           </Card>
@@ -137,7 +137,7 @@ const Pricing = () => {
               ))}
             </ul>
 
-            <Button variant="accent" className="w-full" size="lg">
+            <Button variant="accent" className="w-full" size="lg" aria-label="Upgrade to Pro plan">
               Go Pro
             </Button>
           </Card>

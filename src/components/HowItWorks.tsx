@@ -24,10 +24,10 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <section id="how-it-works" className="py-20 bg-secondary">
+    <section id="how-it-works" className="py-20 bg-secondary" aria-labelledby="how-it-works-heading">
       <div className="container px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl font-bold text-foreground mb-4">
+          <h2 id="how-it-works-heading" className="text-4xl font-bold text-foreground mb-4">
             Getting Started is Easy
           </h2>
           <p className="text-xl text-muted-foreground">

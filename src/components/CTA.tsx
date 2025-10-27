@@ -15,7 +15,12 @@ const CTA = () => {
           </p>
 
           <div className="mb-6">
-            <Button size="lg" variant="hero" className="text-xl px-12 py-8">
+            <Button 
+              size="lg" 
+              variant="hero" 
+              className="text-xl px-12 py-8"
+              aria-label="Start tracking your expenses for free"
+            >
               Start Tracking for Free
             </Button>
           </div>
