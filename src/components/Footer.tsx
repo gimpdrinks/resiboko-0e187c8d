@@ -1,4 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
 import {
   Dialog,
   DialogContent,
@@ -6,15 +9,141 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
+import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+
+// Contact form schema with validation
+const contactFormSchema = z.object({
+  name: z.string().trim().min(2, "Name must be at least 2 characters").max(100, "Name must be less than 100 characters"),
+  email: z.string().trim().email("Invalid email address").max(255, "Email must be less than 255 characters"),
+  subject: z.string().trim().max(200, "Subject must be less than 200 characters").optional(),
+  message: z.string().trim().min(10, "Message must be at least 10 characters").max(1000, "Message must be less than 1000 characters"),
+  // Honeypot field - should remain empty
+  website: z.string().max(0).optional(),
+});
+
+type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 const Footer = () => {
   const [privacyOpen, setPrivacyOpen] = useState(false);
   const [termsOpen, setTermsOpen] = useState(false);
+  const [contactOpen, setContactOpen] = useState(false);
+  const [formStartTime, setFormStartTime] = useState<number>(0);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
+
+  const form = useForm<ContactFormValues>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+      website: "",
+    },
+  });
+
+  // Track when the form is opened for time-based validation
+  useEffect(() => {
+    if (contactOpen) {
+      setFormStartTime(Date.now());
+    }
+  }, [contactOpen]);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const onSubmit = async (data: ContactFormValues) => {
+    // Honeypot check
+    if (data.website && data.website.length > 0) {
+      console.warn("Spam detected via honeypot");
+      return;
+    }
+
+    // Time-based validation (must take at least 3 seconds)
+    const timeTaken = Date.now() - formStartTime;
+    if (timeTaken < 3000) {
+      toast({
+        title: "Error",
+        description: "Please take your time filling out the form.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Rate limiting check (1 submission per minute)
+    const lastSubmission = localStorage.getItem("lastContactSubmission");
+    if (lastSubmission) {
+      const timeSinceLastSubmission = Date.now() - parseInt(lastSubmission);
+      if (timeSinceLastSubmission < 60000) {
+        const remainingTime = Math.ceil((60000 - timeSinceLastSubmission) / 1000);
+        toast({
+          title: "Please wait",
+          description: `You can submit again in ${remainingTime} seconds.`,
+          variant: "destructive",
+        });
+        return;
+      }
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      // Replace with your Web3Forms access key
+      const WEB3FORMS_ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY_HERE";
+      
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          name: data.name,
+          email: data.email,
+          subject: data.subject || "New contact form submission from ResiboKo",
+          message: data.message,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        localStorage.setItem("lastContactSubmission", Date.now().toString());
+        toast({
+          title: "Message sent!",
+          description: "We'll get back to you as soon as possible.",
+        });
+        form.reset();
+        setContactOpen(false);
+      } else {
+        throw new Error("Failed to send message");
+      }
+    } catch (error) {
+      console.error("Contact form error:", error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again or email us directly at hello@resiboko.com",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -29,6 +158,46 @@ const Footer = () => {
                 AI-powered expense tracking made simple for Filipino professionals. 
                 Turn receipts and spoken expenses into clear financial insights.
               </p>
+              
+              {/* Social Media Links */}
+              <div className="flex gap-4 mt-4">
+                <a 
+                  href="https://facebook.com/resiboko" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+                  aria-label="Facebook"
+                >
+                  <Facebook className="w-5 h-5" />
+                </a>
+                <a 
+                  href="https://twitter.com/resiboko" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+                  aria-label="Twitter"
+                >
+                  <Twitter className="w-5 h-5" />
+                </a>
+                <a 
+                  href="https://instagram.com/resiboko" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+                  aria-label="Instagram"
+                >
+                  <Instagram className="w-5 h-5" />
+                </a>
+                <a 
+                  href="https://linkedin.com/company/resiboko" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="w-5 h-5" />
+                </a>
+              </div>
             </div>
 
             <div>
@@ -40,6 +209,11 @@ const Footer = () => {
                   </button>
                 </li>
                 <li>
+                  <button onClick={() => scrollToSection("how-it-works")} className="hover:text-accent transition-colors">
+                    How It Works
+                  </button>
+                </li>
+                <li>
                   <button onClick={() => scrollToSection("pricing")} className="hover:text-accent transition-colors">
                     Pricing
                   </button>
@@ -48,9 +222,6 @@ const Footer = () => {
                   <button onClick={() => scrollToSection("faq")} className="hover:text-accent transition-colors">
                     FAQ
                   </button>
-                </li>
-                <li>
-                  <a href="#blog" className="hover:text-accent transition-colors">Blog</a>
                 </li>
               </ul>
             </div>
@@ -69,9 +240,9 @@ const Footer = () => {
                   </button>
                 </li>
                 <li>
-                  <a href="mailto:hello@resiboko.com" className="hover:text-accent transition-colors">
+                  <button onClick={() => setContactOpen(true)} className="hover:text-accent transition-colors">
                     Contact Us
-                  </a>
+                  </button>
                 </li>
               </ul>
             </div>
@@ -82,6 +253,106 @@ const Footer = () => {
           </div>
         </div>
       </footer>
+
+      {/* Contact Modal */}
+      <Dialog open={contactOpen} onOpenChange={setContactOpen}>
+        <DialogContent className="max-w-2xl">
+          <DialogHeader>
+            <DialogTitle className="text-2xl">Contact Us</DialogTitle>
+            <DialogDescription>
+              Have questions? We&apos;d love to hear from you. Send us a message and we&apos;ll respond as soon as possible.
+            </DialogDescription>
+          </DialogHeader>
+          
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+              {/* Honeypot field - hidden from users */}
+              <FormField
+                control={form.control}
+                name="website"
+                render={({ field }) => (
+                  <FormItem className="hidden">
+                    <FormControl>
+                      <Input {...field} tabIndex={-1} autoComplete="off" />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="name"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Name</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Juan dela Cruz" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Email</FormLabel>
+                    <FormControl>
+                      <Input type="email" placeholder="juan@example.com" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="subject"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Subject (Optional)</FormLabel>
+                    <FormControl>
+                      <Input placeholder="How can we help?" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="message"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Message</FormLabel>
+                    <FormControl>
+                      <Textarea 
+                        placeholder="Tell us what's on your mind..." 
+                        className="min-h-[120px]"
+                        {...field} 
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <Button type="submit" className="w-full" disabled={isSubmitting}>
+                {isSubmitting ? "Sending..." : "Send Message"}
+              </Button>
+
+              <p className="text-sm text-muted-foreground text-center">
+                Or email us directly at{" "}
+                <a href="mailto:hello@resiboko.com" className="text-accent hover:underline">
+                  hello@resiboko.com
+                </a>
+              </p>
+            </form>
+          </Form>
+        </DialogContent>
+      </Dialog>
 
       {/* Privacy Policy Modal */}
       <Dialog open={privacyOpen} onOpenChange={setPrivacyOpen}>
