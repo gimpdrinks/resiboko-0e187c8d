@@ -1,3 +1,4 @@
+import React from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Check, Zap, Crown, Sparkles } from "lucide-react";
@@ -41,6 +42,8 @@ const pricingTiers = [
 ];
 
 const Pricing = () => {
+  const [selectedTier, setSelectedTier] = React.useState<number>(1); // Default to Annual
+
   return (
     <section id="pricing" className="py-20 bg-secondary" aria-labelledby="pricing-heading">
       <div className="container px-4 sm:px-6 lg:px-8">
@@ -107,11 +110,21 @@ const Pricing = () => {
             <div className="grid grid-cols-3 gap-2 mb-6">
               {pricingTiers.map((tier, index) => (
                 <div 
-                  key={index} 
-                  className={`text-center p-3 rounded-lg border-2 transition-all ${
-                    tier.popular 
-                      ? 'border-accent bg-accent/10' 
-                      : 'border-border bg-background hover:border-accent/30'
+                  key={index}
+                  onClick={() => setSelectedTier(index)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      setSelectedTier(index);
+                    }
+                  }}
+                  aria-pressed={selectedTier === index}
+                  className={`text-center p-3 rounded-lg border-2 transition-all cursor-pointer ${
+                    selectedTier === index
+                      ? 'border-accent bg-accent/10 shadow-lg scale-105' 
+                      : 'border-border bg-background hover:border-accent/30 hover:shadow-md'
                   }`}
                 >
                   <div className="text-xs font-medium text-muted-foreground mb-1">
@@ -137,8 +150,8 @@ const Pricing = () => {
               ))}
             </ul>
 
-            <Button variant="accent" className="w-full" size="lg" aria-label="Upgrade to Pro plan">
-              Go Pro
+            <Button variant="accent" className="w-full" size="lg" aria-label={`Upgrade to Pro plan - ${pricingTiers[selectedTier].name}`}>
+              Get Pro - {pricingTiers[selectedTier].name}
             </Button>
           </Card>
         </div>
