@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-image.jpg";
-import { Sparkles, Camera, Mic } from "lucide-react";
+import { Sparkles, TrendingUp, MapPin, CheckCircle2, Shield, Clock } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -21,17 +21,17 @@ const Hero = () => {
             </div>
             
             <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
-              Ang Iyong Resibo,{" "}
-              <span className="text-accent">Clear na Insights</span>
+              Master Your Gastos,{" "}
+              <span className="text-accent">One Snap at a Time</span>
             </h1>
             
             <p className="text-xl text-white/90 leading-relaxed max-w-xl">
-              Snap receipts, record expenses through voice, and let AI transform your paper trails into actionable financial insights. Perfect for Filipino freelancers and professionals.
+              Effortlessly track all your Filipino expenses—from jeepney rides to Jollibee runs—using just your phone&apos;s camera or voice. ResiboKo&apos;s AI turns chaos into clarity.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" variant="hero" className="text-lg px-8 py-6">
-                Get Started Free
+                Start Tracking for Free
               </Button>
               <Button 
                 size="lg" 
@@ -45,16 +45,32 @@ const Hero = () => {
             {/* Feature pills */}
             <div className="flex flex-wrap gap-3 pt-4">
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
-                <Camera className="w-4 h-4 text-accent" />
-                <span className="text-sm">Scan Receipts</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
-                <Mic className="w-4 h-4 text-accent" />
-                <span className="text-sm">Voice Input</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
                 <Sparkles className="w-4 h-4 text-accent" />
-                <span className="text-sm">AI Insights</span>
+                <span className="text-sm">Effortless AI Tracking</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
+                <TrendingUp className="w-4 h-4 text-accent" />
+                <span className="text-sm">Find Tipid Opportunities</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
+                <MapPin className="w-4 h-4 text-accent" />
+                <span className="text-sm">Built for PH Cash Spends</span>
+              </div>
+            </div>
+
+            {/* Trust indicators */}
+            <div className="flex flex-wrap gap-4 pt-2 text-sm text-white/80">
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-accent" />
+                <span>Free to Start</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Shield className="w-4 h-4 text-accent" />
+                <span>Secure Google Sign-In</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Clock className="w-4 h-4 text-accent" />
+                <span>2-Minute Setup</span>
               </div>
             </div>
           </div>
