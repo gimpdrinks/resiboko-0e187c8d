@@ -53,7 +53,7 @@ const DemoModal = ({ open, onOpenChange }: DemoModalProps) => {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-4xl">
+      <DialogContent className="max-w-3xl max-h-[85vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-2xl">See How ResiboKo Works</DialogTitle>
           <DialogDescription>
@@ -80,11 +80,11 @@ const DemoModal = ({ open, onOpenChange }: DemoModalProps) => {
             <CarouselContent className="-ml-4">
               {demoSteps.map((step, index) => (
                 <CarouselItem key={index} className="pl-4">
-                  <Card className="p-6 md:p-8 overflow-hidden">
-                    <div className="flex flex-col items-center text-center space-y-6">
+                  <Card className="p-4 md:p-6 overflow-hidden">
+                    <div className="flex flex-col items-center text-center space-y-4">
                       {/* Icon with gradient background */}
-                      <div className={`w-24 h-24 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-xl`}>
-                        <step.icon className="w-12 h-12 text-white" />
+                      <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-xl`}>
+                        <step.icon className="w-10 h-10 text-white" />
                       </div>
 
                       {/* Title */}
@@ -101,7 +101,7 @@ const DemoModal = ({ open, onOpenChange }: DemoModalProps) => {
                       </div>
 
                       {/* Placeholder for screenshot/mockup */}
-                      <div className="w-full aspect-video rounded-lg bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center border-2 border-border overflow-hidden">
+                      <div className="w-full aspect-[4/3] rounded-lg bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center border-2 border-border overflow-hidden">
                         <div className="text-center p-4 md:p-8 max-w-full">
                           <step.icon className="w-12 h-12 md:w-16 md:h-16 text-muted-foreground/30 mx-auto mb-4 flex-shrink-0" />
                           <p className="text-sm text-muted-foreground break-words">
