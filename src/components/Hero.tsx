@@ -1,0 +1,92 @@
+import { Button } from "@/components/ui/button";
+import heroImage from "@/assets/hero-image.jpg";
+import { Sparkles, Camera, Mic } from "lucide-react";
+
+const Hero = () => {
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary-light to-primary">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-1/2 -right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-1/2 -left-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      </div>
+
+      <div className="container relative z-10 px-4 sm:px-6 lg:px-8 py-20">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left column - Text content */}
+          <div className="text-white space-y-8">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
+              <Sparkles className="w-4 h-4 text-accent" />
+              <span className="text-sm font-medium">AI-Powered Finance Tracking</span>
+            </div>
+            
+            <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
+              Ang Iyong Resibo,{" "}
+              <span className="text-accent">Clear na Insights</span>
+            </h1>
+            
+            <p className="text-xl text-white/90 leading-relaxed max-w-xl">
+              Snap receipts, record expenses through voice, and let AI transform your paper trails into actionable financial insights. Perfect for Filipino freelancers and professionals.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button size="lg" variant="hero" className="text-lg px-8 py-6">
+                Get Started Free
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="text-lg px-8 py-6 bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 hover:text-white"
+              >
+                See How It Works
+              </Button>
+            </div>
+
+            {/* Feature pills */}
+            <div className="flex flex-wrap gap-3 pt-4">
+              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
+                <Camera className="w-4 h-4 text-accent" />
+                <span className="text-sm">Scan Receipts</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
+                <Mic className="w-4 h-4 text-accent" />
+                <span className="text-sm">Voice Input</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
+                <Sparkles className="w-4 h-4 text-accent" />
+                <span className="text-sm">AI Insights</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right column - Hero image */}
+          <div className="relative">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <img 
+                src={heroImage} 
+                alt="ResiboKo app interface showing AI-powered receipt scanning" 
+                className="w-full h-auto object-cover"
+              />
+              {/* Glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-t from-accent/20 to-transparent"></div>
+            </div>
+            {/* Floating card effect */}
+            <div className="absolute -bottom-6 -left-6 bg-white rounded-xl p-4 shadow-xl hidden md:block">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center">
+                  <Sparkles className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground">AI Processed</p>
+                  <p className="text-sm text-muted-foreground">5,234 receipts</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
