@@ -1,9 +1,14 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-image.jpg";
 import { Sparkles, TrendingUp, MapPin, CheckCircle2, Shield, Clock } from "lucide-react";
+import DemoModal from "./DemoModal";
 
 const Hero = () => {
+  const [demoOpen, setDemoOpen] = useState(false);
+
   return (
+    <>
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary-light to-primary">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -37,6 +42,7 @@ const Hero = () => {
                 size="lg" 
                 variant="outline" 
                 className="text-lg px-8 py-6 bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 hover:text-white"
+                onClick={() => setDemoOpen(true)}
               >
                 See How It Works
               </Button>
@@ -102,6 +108,8 @@ const Hero = () => {
         </div>
       </div>
     </section>
+    <DemoModal open={demoOpen} onOpenChange={setDemoOpen} />
+    </>
   );
 };
 
