@@ -1,23 +1,24 @@
-import { Camera, Brain, TrendingUp } from "lucide-react";
+import { Camera, Mic, Keyboard, Brain, BarChart3 } from "lucide-react";
 
 const steps = [
   {
     number: "01",
     icon: Camera,
-    title: "Capture or Speak",
-    description: "Snap a photo of your receipt or simply tell ResiboKo about your expense using voice input.",
+    secondaryIcons: [Mic, Keyboard],
+    title: "Snap or Speak Your Expense",
+    description: "Use your camera for receipts, voice for cash spends (like jeepney!), or type it in. Takes seconds.",
   },
   {
     number: "02",
     icon: Brain,
-    title: "AI Processing",
-    description: "Our AI instantly reads receipts, categorizes expenses, and organizes everything automatically.",
+    title: "AI Does the Work",
+    description: "ResiboKo instantly reads, categorizes, and saves your transaction securely.",
   },
   {
     number: "03",
-    icon: TrendingUp,
-    title: "Get Insights",
-    description: "View beautiful reports, track spending patterns, and receive personalized financial recommendations.",
+    icon: BarChart3,
+    title: "See Your Money Story",
+    description: "View your history, track spending, and ask 'Piso' to find tipid opportunities.",
   },
 ];
 
@@ -27,10 +28,10 @@ const HowItWorks = () => {
       <div className="container px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-4xl font-bold text-foreground mb-4">
-            Sobrang Simple Lang
+            Getting Started is Easy
           </h2>
           <p className="text-xl text-muted-foreground">
-            Three easy steps to financial clarity
+            Three simple steps to financial clarity
           </p>
         </div>
 
@@ -46,6 +47,17 @@ const HowItWorks = () => {
                     {step.number}
                   </div>
                 </div>
+                
+                {/* Secondary icons for step 1 */}
+                {step.secondaryIcons && (
+                  <div className="flex justify-center gap-2 mb-4">
+                    {step.secondaryIcons.map((Icon, i) => (
+                      <div key={i} className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center">
+                        <Icon className="w-4 h-4 text-accent" />
+                      </div>
+                    ))}
+                  </div>
+                )}
                 
                 <h3 className="text-2xl font-semibold text-foreground mb-3">
                   {step.title}
