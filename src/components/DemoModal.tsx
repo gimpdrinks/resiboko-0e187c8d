@@ -61,7 +61,7 @@ const DemoModal = ({ open, onOpenChange }: DemoModalProps) => {
           </DialogDescription>
         </DialogHeader>
 
-        <div className="mt-4">
+        <div className="mt-4 overflow-hidden">
           {/* Video Option - Uncomment and add your video URL */}
           {/* <div className="aspect-video rounded-lg overflow-hidden bg-muted">
             <iframe
@@ -76,11 +76,11 @@ const DemoModal = ({ open, onOpenChange }: DemoModalProps) => {
           </div> */}
 
           {/* Image Carousel */}
-          <Carousel className="w-full" opts={{ loop: true }}>
-            <CarouselContent>
+          <Carousel className="w-full overflow-hidden" opts={{ loop: true }}>
+            <CarouselContent className="-ml-4">
               {demoSteps.map((step, index) => (
-                <CarouselItem key={index}>
-                  <Card className="p-8">
+                <CarouselItem key={index} className="pl-4">
+                  <Card className="p-6 md:p-8 overflow-hidden">
                     <div className="flex flex-col items-center text-center space-y-6">
                       {/* Icon with gradient background */}
                       <div className={`w-24 h-24 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-xl`}>
@@ -101,10 +101,10 @@ const DemoModal = ({ open, onOpenChange }: DemoModalProps) => {
                       </div>
 
                       {/* Placeholder for screenshot/mockup */}
-                      <div className="w-full aspect-video rounded-lg bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center border-2 border-border">
-                        <div className="text-center p-8">
-                          <step.icon className="w-16 h-16 text-muted-foreground/30 mx-auto mb-4" />
-                          <p className="text-sm text-muted-foreground">
+                      <div className="w-full aspect-video rounded-lg bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center border-2 border-border overflow-hidden">
+                        <div className="text-center p-4 md:p-8 max-w-full">
+                          <step.icon className="w-12 h-12 md:w-16 md:h-16 text-muted-foreground/30 mx-auto mb-4 flex-shrink-0" />
+                          <p className="text-sm text-muted-foreground break-words">
                             Screenshot: {step.title}
                           </p>
                         </div>
@@ -126,8 +126,8 @@ const DemoModal = ({ open, onOpenChange }: DemoModalProps) => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="left-4" />
-            <CarouselNext className="right-4" />
+            <CarouselPrevious className="left-2 md:left-4" />
+            <CarouselNext className="right-2 md:right-4" />
           </Carousel>
 
           <p className="text-center text-sm text-muted-foreground mt-4">
