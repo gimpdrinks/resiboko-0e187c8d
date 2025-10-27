@@ -44,7 +44,7 @@ const HowItWorks = () => {
             {steps.map((step, index) => (
               <Card 
                 key={index}
-                className="relative overflow-hidden hover:shadow-xl transition-all duration-300 group"
+                className="relative overflow-hidden hover:shadow-xl transition-all duration-300 group h-full flex flex-col"
               >
                 {/* Step number badge */}
                 <div className="absolute top-4 right-4">
@@ -53,7 +53,7 @@ const HowItWorks = () => {
                   </div>
                 </div>
 
-                <div className="p-8">
+                <div className="p-8 flex-1 flex flex-col">
                   {/* Icon */}
                   <div className="mb-6">
                     <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform duration-300`}>
@@ -68,7 +68,7 @@ const HowItWorks = () => {
                   </h3>
 
                   {/* Description */}
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-muted-foreground leading-relaxed flex-1">
                     {step.description}
                   </p>
                 </div>
