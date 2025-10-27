@@ -22,13 +22,13 @@ const proPlanFeatures = [
 const pricingTiers = [
   {
     name: "Monthly",
-    price: "₱149",
+    price: "₱90",
     period: "/month",
     savings: null,
   },
   {
     name: "Annual",
-    price: "₱1,290",
+    price: "₱999",
     period: "/year",
     savings: "Save ~25%",
     popular: true,
