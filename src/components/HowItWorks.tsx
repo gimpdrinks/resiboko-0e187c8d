@@ -61,16 +61,6 @@ const HowItWorks = () => {
                     </div>
                   </div>
 
-                  {/* Secondary icons for step 1 */}
-                  {step.secondaryIcons && (
-                    <div className="flex gap-2 mb-4">
-                      {step.secondaryIcons.map((Icon, i) => (
-                        <div key={i} className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center hover:bg-accent/10 transition-colors">
-                          <Icon className="w-5 h-5 text-muted-foreground" />
-                        </div>
-                      ))}
-                    </div>
-                  )}
 
                   {/* Title */}
                   <h3 className="text-2xl font-bold text-foreground mb-3">
