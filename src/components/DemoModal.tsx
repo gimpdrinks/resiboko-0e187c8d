@@ -53,7 +53,7 @@ const DemoModal = ({ open, onOpenChange }: DemoModalProps) => {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-3xl max-h-[85vh] overflow-y-auto">
+      <DialogContent className="max-w-2xl overflow-hidden">
         <DialogHeader>
           <DialogTitle className="text-2xl">See How ResiboKo Works</DialogTitle>
           <DialogDescription>
@@ -61,7 +61,7 @@ const DemoModal = ({ open, onOpenChange }: DemoModalProps) => {
           </DialogDescription>
         </DialogHeader>
 
-        <div className="mt-4 overflow-hidden">
+        <div className="mt-4 overflow-hidden px-2">
           {/* Video Option - Uncomment and add your video URL */}
           {/* <div className="aspect-video rounded-lg overflow-hidden bg-muted">
             <iframe
@@ -76,59 +76,61 @@ const DemoModal = ({ open, onOpenChange }: DemoModalProps) => {
           </div> */}
 
           {/* Image Carousel */}
-          <Carousel className="w-full overflow-hidden" opts={{ loop: true }}>
-            <CarouselContent className="-ml-4">
-              {demoSteps.map((step, index) => (
-                <CarouselItem key={index} className="pl-4">
-                  <Card className="p-4 md:p-6 overflow-hidden">
-                    <div className="flex flex-col items-center text-center space-y-4">
-                      {/* Icon with gradient background */}
-                      <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-xl`}>
-                        <step.icon className="w-10 h-10 text-white" />
-                      </div>
-
-                      {/* Title */}
-                      <div>
-                        <div className="text-sm font-medium text-muted-foreground mb-2">
-                          Step {index + 1} of {demoSteps.length}
+          <div className="relative min-h-[480px] flex items-center">
+            <Carousel className="w-full max-w-full overflow-hidden" opts={{ loop: true }}>
+              <CarouselContent className="-ml-4">
+                {demoSteps.map((step, index) => (
+                  <CarouselItem key={index} className="pl-4">
+                    <Card className="p-3 md:p-4 overflow-hidden">
+                      <div className="flex flex-col items-center text-center space-y-4">
+                        {/* Icon with gradient background */}
+                        <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-xl`}>
+                          <step.icon className="w-10 h-10 text-white" />
                         </div>
-                        <h3 className="text-2xl font-bold text-foreground mb-3">
-                          {step.title}
-                        </h3>
-                        <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-                          {step.description}
-                        </p>
-                      </div>
 
-                      {/* Placeholder for screenshot/mockup */}
-                      <div className="w-full aspect-[4/3] rounded-lg bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center border-2 border-border overflow-hidden">
-                        <div className="text-center p-4 md:p-8 max-w-full">
-                          <step.icon className="w-12 h-12 md:w-16 md:h-16 text-muted-foreground/30 mx-auto mb-4 flex-shrink-0" />
-                          <p className="text-sm text-muted-foreground break-words">
-                            Screenshot: {step.title}
+                        {/* Title */}
+                        <div>
+                          <div className="text-sm font-medium text-muted-foreground mb-2">
+                            Step {index + 1} of {demoSteps.length}
+                          </div>
+                          <h3 className="text-2xl font-bold text-foreground mb-3">
+                            {step.title}
+                          </h3>
+                          <p className="text-muted-foreground text-lg max-w-xl mx-auto">
+                            {step.description}
                           </p>
                         </div>
-                      </div>
 
-                      {/* Progress indicators */}
-                      <div className="flex gap-2">
-                        {demoSteps.map((_, i) => (
-                          <div
-                            key={i}
-                            className={`h-2 rounded-full transition-all ${
-                              i === index ? "w-8 bg-accent" : "w-2 bg-muted-foreground/30"
-                            }`}
-                          />
-                        ))}
+                        {/* Placeholder for screenshot/mockup */}
+                        <div className="w-full aspect-video rounded-lg bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center border-2 border-border overflow-hidden">
+                          <div className="text-center p-3 md:p-6 max-w-full">
+                            <step.icon className="w-12 h-12 md:w-16 md:h-16 text-muted-foreground/30 mx-auto mb-4 flex-shrink-0" />
+                            <p className="text-sm text-muted-foreground break-words">
+                              Screenshot: {step.title}
+                            </p>
+                          </div>
+                        </div>
+
+                        {/* Progress indicators */}
+                        <div className="flex gap-2">
+                          {demoSteps.map((_, i) => (
+                            <div
+                              key={i}
+                              className={`h-2 rounded-full transition-all ${
+                                i === index ? "w-8 bg-accent" : "w-2 bg-muted-foreground/30"
+                              }`}
+                            />
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  </Card>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="left-2 md:left-4" />
-            <CarouselNext className="right-2 md:right-4" />
-          </Carousel>
+                    </Card>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-2 md:left-4" />
+              <CarouselNext className="right-2 md:right-4" />
+            </Carousel>
+          </div>
 
           <p className="text-center text-sm text-muted-foreground mt-4">
             Use the arrows to navigate through each step
