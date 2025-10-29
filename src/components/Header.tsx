@@ -43,7 +43,7 @@ const Header = () => {
             <img 
               src="https://res.cloudinary.com/dbylka4xx/image/upload/v1751883360/AiForPinoys_Logo_ttg2id.png" 
               alt="ResiboKo Logo" 
-              className="w-10 h-10 object-contain"
+              className="w-14 h-14 object-contain"
             />
             <span>ResiboKo</span>
           </a>
@@ -88,7 +88,7 @@ const Header = () => {
                   <img 
                     src="https://res.cloudinary.com/dbylka4xx/image/upload/v1751883360/AiForPinoys_Logo_ttg2id.png" 
                     alt="ResiboKo Logo" 
-                    className="w-8 h-8 object-contain"
+                    className="w-12 h-12 object-contain"
                   />
                   ResiboKo
                 </SheetTitle>
