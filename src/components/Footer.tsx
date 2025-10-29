@@ -21,7 +21,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 
 // Contact form schema with validation
 const contactFormSchema = z.object({
@@ -158,46 +157,6 @@ const Footer = () => {
                 AI-powered expense tracking made simple for Filipino professionals. 
                 Turn receipts and spoken expenses into clear financial insights.
               </p>
-              
-              {/* Social Media Links */}
-              <div className="flex gap-4 mt-4">
-                <a 
-                  href="https://facebook.com/resiboko" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
-                  aria-label="Facebook"
-                >
-                  <Facebook className="w-5 h-5" />
-                </a>
-                <a 
-                  href="https://twitter.com/resiboko" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
-                  aria-label="Twitter"
-                >
-                  <Twitter className="w-5 h-5" />
-                </a>
-                <a 
-                  href="https://instagram.com/resiboko" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
-                  aria-label="Instagram"
-                >
-                  <Instagram className="w-5 h-5" />
-                </a>
-                <a 
-                  href="https://linkedin.com/company/resiboko" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="w-5 h-5" />
-                </a>
-              </div>
             </div>
 
             <div>
