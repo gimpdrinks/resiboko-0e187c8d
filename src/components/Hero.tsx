@@ -99,17 +99,16 @@ const Hero = () => {
               {/* Glow effect */}
               <div className="absolute inset-0 bg-gradient-to-t from-accent/20 to-transparent" aria-hidden="true"></div>
             </div>
-            {/* Floating card effect */}
-            <div className="absolute -bottom-6 -left-6 bg-white rounded-xl p-4 shadow-xl hidden md:block">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center">
-                  <Sparkles className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <p className="font-semibold text-foreground">AI Processed</p>
-                  <p className="text-sm text-muted-foreground">5,234 receipts</p>
-                </div>
-              </div>
+            {/* Floating video ad */}
+            <div className="absolute -bottom-6 -left-6 rounded-xl overflow-hidden shadow-2xl hidden md:block w-80 aspect-video">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1&mute=1&loop=1&playlist=YOUR_VIDEO_ID"
+                title="ResiboKo Demo Video"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
             </div>
           </div>
         </div>
