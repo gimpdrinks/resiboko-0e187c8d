@@ -8,8 +8,8 @@ const testimonials = [{
   quote: "ResiboKo saved me hours every week! No more manual receipts or Excel sheets. Perfect for tracking all my client expenses and jeepney rides.",
   rating: 5
 }, {
-  name: "Juan dela Cruz",
-  role: "Small Business Owner",
+  name: "Mark Olajares",
+  role: "Presello Real Estate Sales Representative",
   quote: "Finally, an app that gets Filipino expenses! The voice input for quick cash spends is a game-changer. 'Piso' even found ₱3,000 in savings last month!",
   rating: 5
 }, {
