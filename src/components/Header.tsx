@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X, Receipt } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -40,7 +40,11 @@ const Header = () => {
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           >
-            <Receipt className="w-6 h-6" />
+            <img 
+              src="https://res.cloudinary.com/dbylka4xx/image/upload/v1751883360/AiForPinoys_Logo_ttg2id.png" 
+              alt="ResiboKo Logo" 
+              className="w-10 h-10 object-contain"
+            />
             <span>ResiboKo</span>
           </a>
 
@@ -81,7 +85,11 @@ const Header = () => {
             <SheetContent side="right" className="w-[300px]">
               <SheetHeader>
                 <SheetTitle className="flex items-center gap-2">
-                  <Receipt className="w-5 h-5" />
+                  <img 
+                    src="https://res.cloudinary.com/dbylka4xx/image/upload/v1751883360/AiForPinoys_Logo_ttg2id.png" 
+                    alt="ResiboKo Logo" 
+                    className="w-8 h-8 object-contain"
+                  />
                   ResiboKo
                 </SheetTitle>
               </SheetHeader>
