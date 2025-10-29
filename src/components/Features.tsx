@@ -4,33 +4,33 @@ import { Card } from "@/components/ui/card";
 const benefits = [
   {
     icon: Camera,
-    title: "Snap or Speak, We Handle the Rest",
-    benefit: "Capture any expense in seconds, even without a paper receipt.",
-    features: "AI Receipt Scanning (photo upload/camera), Voice Entry, Quick Presets (Jeepney, etc.)",
+    title: "No More Lost Receipts",
+    benefit: "Tired of pockets full of crumpled resibos? Just snap a photo or say it out loud. Done in 3 seconds.",
+    features: "Take a photo, use your voice, or tap a preset. Works even without receipts.",
   },
   {
     icon: Sparkles,
-    title: "Instant Organization, Zero Effort",
-    benefit: "See all your spending clearly categorized without manual spreadsheet work.",
-    features: "AI Categorization, Real-time Transaction History, Cloud Sync via Firebase",
+    title: "Stop Guessing Where Your Money Went",
+    benefit: "No more Excel headaches or calculator stress. Everything's automatically sorted so you can see exactly where every peso goes.",
+    features: "Automatic sorting by category. View all your spending in one place. Updates instantly across your devices.",
   },
   {
     icon: TrendingDown,
-    title: "Discover Hidden Savings (\"Tipid Opportunities\")",
-    benefit: "Let AI find where your money is going unexpectedly and suggest practical ways to save.",
-    features: "AI Financial Assistant (\"Piso\"), \"Tipid Opportunity\" Analysis based on fees, habits, and swaps",
+    title: "Find Money You Didn't Know You Were Losing",
+    benefit: "Spending ₱500/week on fees you don't notice? Buying expensive snacks out of habit? Piso finds these leaks and shows you easy swaps to save thousands.",
+    features: "Get personal tipid tips from Piso, your AI money buddy. Spots wasteful fees, expensive habits, and better alternatives.",
   },
   {
     icon: MessageCircle,
-    title: "Ask Anything About Your Spending",
-    benefit: "Get quick answers to your money questions in plain Taglish.",
-    features: "AI Q&A (\"Ask Piso\") - chat with your financial data anytime",
+    title: "Talk to Your Money Like a Friend",
+    benefit: "Curious how much you spent on food this month? Just ask. Want to know if you can afford that gadget? Piso answers in seconds, no math needed.",
+    features: "Chat in English, Tagalog, or Taglish. Ask anything about your spending. Get instant, easy-to-understand answers.",
   },
   {
     icon: Shield,
-    title: "Your Data, Secure & Accessible",
-    benefit: "Access your financial picture anytime, anywhere, knowing your data is safe.",
-    features: "Secure Google Sign-In, Firebase Cloud Storage, User Data Privacy",
+    title: "Your Money Info Stays Private & Safe",
+    benefit: "Check your spending from anywhere—home, office, or commute. Your financial data is locked down tight, only you can see it.",
+    features: "Sign in safely with Google. Your data is encrypted and secure. Access from any device, anytime.",
   },
 ];
 
