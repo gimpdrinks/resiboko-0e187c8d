@@ -64,13 +64,14 @@ const Features = () => {
                 } gap-8 md:gap-12 items-center`}
               >
                 {/* Text Content */}
-                <div className="flex-1 space-y-6">
-                  <Badge variant="outline" className="bg-accent/10 text-accent border-accent/20 hover:bg-accent/20">
-                    {feature.badge}
-                  </Badge>
-                  
-                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent to-accent-light flex items-center justify-center shadow-md">
-                    <feature.icon className="w-7 h-7 text-white" />
+                <div className="flex-1 space-y-4">
+                  <div className="flex items-center gap-4">
+                    <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent to-accent-light flex items-center justify-center shadow-md flex-shrink-0">
+                      <feature.icon className="w-7 h-7 text-white" />
+                    </div>
+                    <Badge variant="outline" className="bg-accent/10 text-accent border-accent/20 hover:bg-accent/20">
+                      {feature.badge}
+                    </Badge>
                   </div>
                   
                   <h3 className="text-3xl md:text-4xl font-bold text-card-foreground">
