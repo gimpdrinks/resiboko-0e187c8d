@@ -92,7 +92,7 @@ const Hero = () => {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-video">
               <iframe
                 className="w-full h-full"
-                src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1&mute=1&loop=1&playlist=YOUR_VIDEO_ID"
+                src="https://www.youtube.com/embed/jtU9fWYJGN0?autoplay=1&mute=1&loop=1&playlist=jtU9fWYJGN0"
                 title="ResiboKo Demo Video"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
