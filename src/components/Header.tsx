@@ -30,7 +30,7 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a 
             href="#" 
@@ -41,9 +41,9 @@ const Header = () => {
             }}
           >
             <img 
-              src="https://res.cloudinary.com/dbylka4xx/image/upload/v1751883360/AiForPinoys_Logo_ttg2id.png" 
+              src="https://res.cloudinary.com/dbylka4xx/image/upload/f_auto,q_auto,e_trim/v1751883360/AiForPinoys_Logo_ttg2id.png" 
               alt="ResiboKo Logo" 
-              className="w-14 h-14 object-contain"
+              className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain"
             />
             <span>ResiboKo</span>
           </a>
@@ -86,9 +86,9 @@ const Header = () => {
               <SheetHeader>
                 <SheetTitle className="flex items-center gap-2">
                   <img 
-                    src="https://res.cloudinary.com/dbylka4xx/image/upload/v1751883360/AiForPinoys_Logo_ttg2id.png" 
+                    src="https://res.cloudinary.com/dbylka4xx/image/upload/f_auto,q_auto,e_trim/v1751883360/AiForPinoys_Logo_ttg2id.png" 
                     alt="ResiboKo Logo" 
-                    className="w-12 h-12 object-contain"
+                    className="w-16 h-16 object-contain"
                   />
                   ResiboKo
                 </SheetTitle>
