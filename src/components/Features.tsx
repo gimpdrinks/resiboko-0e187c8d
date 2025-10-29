@@ -1,36 +1,42 @@
-import { Camera, Sparkles, TrendingDown, MessageCircle, Shield } from "lucide-react";
-import { Card } from "@/components/ui/card";
+import { Camera, Sparkles, MessageCircle, Shield } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
-const benefits = [
+const features = [
   {
+    badge: "SMART CAPTURE",
     icon: Camera,
-    title: "No More Lost Receipts",
-    benefit: "Tired of pockets full of crumpled resibos? Just snap a photo or say it out loud. Done in 3 seconds.",
-    features: "Take a photo, use your voice, or tap a preset. Works even without receipts.",
+    title: "Capture expenses ",
+    titleAccent: "instantly",
+    description: "Tired of pockets full of crumpled resibos? Just snap a photo or say it out loud. Done in 3 seconds.",
+    details: "Take a photo, use your voice, or tap a preset. Works even without receipts.",
+    mockupPlaceholder: "📸 Receipt Capture Flow",
   },
   {
+    badge: "AUTO-ORGANIZE",
     icon: Sparkles,
-    title: "Stop Guessing Where Your Money Went",
-    benefit: "No more Excel headaches or calculator stress. Everything's automatically sorted so you can see exactly where every peso goes.",
-    features: "Automatic sorting by category. View all your spending in one place. Updates instantly across your devices.",
+    title: "See where every peso ",
+    titleAccent: "goes",
+    description: "No more Excel headaches or calculator stress. Everything's automatically sorted so you can see exactly where every peso goes.",
+    details: "Automatic sorting by category. View all your spending in one place. Updates instantly across your devices.",
+    mockupPlaceholder: "📊 Expense Dashboard",
   },
   {
-    icon: TrendingDown,
-    title: "Find Money You Didn't Know You Were Losing",
-    benefit: "Spending ₱500/week on fees you don't notice? Buying expensive snacks out of habit? Piso finds these leaks and shows you easy swaps to save thousands.",
-    features: "Get personal tipid tips from Piso, your AI money buddy. Spots wasteful fees, expensive habits, and better alternatives.",
-  },
-  {
+    badge: "AI INSIGHTS",
     icon: MessageCircle,
-    title: "Talk to Your Money Like a Friend",
-    benefit: "Curious how much you spent on food this month? Just ask. Want to know if you can afford that gadget? Piso answers in seconds, no math needed.",
-    features: "Chat in English, Tagalog, or Taglish. Ask anything about your spending. Get instant, easy-to-understand answers.",
+    title: "Your AI Money Buddy Finds ",
+    titleAccent: "Hidden Savings",
+    description: "Meet Piso, your AI-powered financial analyst. Spending ₱500/week on fees you don't notice? Buying expensive snacks out of habit? Piso spots these leaks automatically AND answers your money questions in seconds—no math needed.",
+    details: "Piso proactively finds wasteful fees, expensive habits, and better alternatives. Plus, chat in English, Tagalog, or Taglish to ask anything: 'How much did I spend on food?' or 'Can I afford that gadget?' Instant, easy answers.",
+    mockupPlaceholder: "💬 AI Chat Interface",
   },
   {
+    badge: "SECURITY",
     icon: Shield,
-    title: "Your Money Info Stays Private & Safe",
-    benefit: "Check your spending from anywhere—home, office, or commute. Your financial data is locked down tight, only you can see it.",
-    features: "Sign in safely with Google. Your data is encrypted and secure. Access from any device, anytime.",
+    title: "Your data stays ",
+    titleAccent: "private",
+    description: "Check your spending from anywhere—home, office, or commute. Your financial data is locked down tight, only you can see it.",
+    details: "Sign in safely with Google. Your data is encrypted and secure. Access from any device, anytime.",
+    mockupPlaceholder: "🔒 Security Dashboard",
   },
 ];
 
@@ -47,26 +53,54 @@ const Features = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {benefits.map((benefit, index) => (
-            <Card 
-              key={index}
-              className="p-6 hover:shadow-lg transition-all duration-300 hover:scale-105 border-border bg-card"
-            >
-              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-accent to-accent-light flex items-center justify-center mb-4 shadow-md">
-                <benefit.icon className="w-7 h-7 text-white" />
+        <div className="max-w-7xl mx-auto space-y-24">
+          {features.map((feature, index) => {
+            const isEven = index % 2 === 0;
+            return (
+              <div
+                key={index}
+                className={`flex flex-col ${
+                  isEven ? 'md:flex-row' : 'md:flex-row-reverse'
+                } gap-8 md:gap-12 items-center`}
+              >
+                {/* Text Content */}
+                <div className="flex-1 space-y-6">
+                  <Badge variant="outline" className="bg-accent/10 text-accent border-accent/20 hover:bg-accent/20">
+                    {feature.badge}
+                  </Badge>
+                  
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent to-accent-light flex items-center justify-center shadow-md">
+                    <feature.icon className="w-7 h-7 text-white" />
+                  </div>
+                  
+                  <h3 className="text-3xl md:text-4xl font-bold text-card-foreground">
+                    {feature.title}
+                    <span className="text-accent">{feature.titleAccent}</span>
+                  </h3>
+                  
+                  <p className="text-lg text-foreground font-medium leading-relaxed">
+                    {feature.description}
+                  </p>
+                  
+                  <p className="text-base text-muted-foreground leading-relaxed">
+                    {feature.details}
+                  </p>
+                </div>
+
+                {/* GIF Placeholder */}
+                <div className="flex-1 w-full">
+                  <div className="aspect-video bg-muted/30 rounded-2xl border-2 border-dashed border-muted-foreground/20 flex items-center justify-center">
+                    <div className="text-center px-4">
+                      <div className="text-6xl mb-4">{feature.mockupPlaceholder.split(' ')[0]}</div>
+                      <p className="text-sm text-muted-foreground font-medium">
+                        {feature.mockupPlaceholder.substring(feature.mockupPlaceholder.indexOf(' ') + 1)}
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <h3 className="text-xl font-semibold text-card-foreground mb-3">
-                {benefit.title}
-              </h3>
-              <p className="text-base text-foreground mb-3 font-medium">
-                {benefit.benefit}
-              </p>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {benefit.features}
-              </p>
-            </Card>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
