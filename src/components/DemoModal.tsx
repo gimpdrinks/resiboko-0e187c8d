@@ -15,6 +15,10 @@ import {
 } from "@/components/ui/carousel";
 import { Card } from "@/components/ui/card";
 import { Upload, Brain, TrendingDown, Lightbulb } from "lucide-react";
+import demoStep1 from "@/assets/demo-step-1.jpg";
+import demoStep2 from "@/assets/demo-step-2.jpg";
+import demoStep3 from "@/assets/demo-step-3.jpg";
+import demoStep4 from "@/assets/demo-step-4.jpg";
 
 interface DemoModalProps {
   open: boolean;
@@ -27,24 +31,28 @@ const demoSteps = [
     description: "Snap a photo of your receipt or speak your expense. Our AI instantly captures the details.",
     icon: Upload,
     color: "from-blue-500 to-blue-600",
+    image: demoStep1,
   },
   {
     title: "AI Analysis in Progress",
     description: "Piso analyzes your spending patterns, categorizes transactions, and detects anomalies.",
     icon: Brain,
     color: "from-purple-500 to-purple-600",
+    image: demoStep2,
   },
   {
     title: "Cash Leak Report",
     description: "See exactly where your money is going with highlighted areas of wasteful spending.",
     icon: TrendingDown,
     color: "from-red-500 to-red-600",
+    image: demoStep3,
   },
   {
     title: "Tipid Opportunities",
     description: "Get personalized suggestions to save money based on your unique spending habits.",
     icon: Lightbulb,
     color: "from-accent to-accent-light",
+    image: demoStep4,
   },
 ];
 
@@ -101,14 +109,13 @@ const DemoModal = ({ open, onOpenChange }: DemoModalProps) => {
                           </p>
                         </div>
 
-                        {/* Placeholder for screenshot/mockup */}
-                        <div className="w-full aspect-video rounded-lg bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center border-2 border-border overflow-hidden">
-                          <div className="text-center p-3 md:p-6 max-w-full">
-                            <step.icon className="w-12 h-12 md:w-16 md:h-16 text-muted-foreground/30 mx-auto mb-4 flex-shrink-0" />
-                            <p className="text-sm text-muted-foreground break-words">
-                              Screenshot: {step.title}
-                            </p>
-                          </div>
+                        {/* Screenshot/mockup */}
+                        <div className="w-full aspect-video rounded-lg overflow-hidden border-2 border-border">
+                          <img 
+                            src={step.image} 
+                            alt={step.title}
+                            className="w-full h-full object-cover"
+                          />
                         </div>
 
                         {/* Progress indicators */}
