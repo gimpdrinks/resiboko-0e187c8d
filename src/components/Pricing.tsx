@@ -22,22 +22,22 @@ const proPlanFeatures = [
 const pricingTiers = [
   {
     name: "Monthly",
-    price: "₱90",
+    price: "₱199",
     period: "/month",
     savings: null,
   },
   {
     name: "Annual",
-    price: "₱999",
+    price: "₱1,788",
     period: "/year",
-    savings: "Save ~25%",
+    savings: "Save ₱600",
     popular: true,
   },
   {
     name: "Lifetime",
-    price: "₱2,499",
+    price: "₱4,999",
     period: "one-time",
-    savings: "Limited Offer!",
+    savings: "Launch Special!",
   },
 ];
 
@@ -52,7 +52,7 @@ const Pricing = () => {
             Simple Pricing for Peace of Mind
           </h2>
           <p className="text-xl text-muted-foreground">
-            Choose the plan that fits your financial journey
+            Less than ₱7/day to gain complete control of your money
           </p>
         </div>
 
@@ -102,7 +102,7 @@ const Pricing = () => {
               </div>
               <div>
                 <h3 className="text-2xl font-bold text-foreground">Pro Plan</h3>
-                <p className="text-muted-foreground">Unlock Full Financial Clarity</p>
+                <p className="text-muted-foreground">For Serious Savers</p>
               </div>
             </div>
 
@@ -165,8 +165,9 @@ const Pricing = () => {
             <div>
               <h4 className="text-xl font-bold text-foreground mb-2">Our Guarantee</h4>
               <p className="text-muted-foreground">
-                If &ldquo;Piso&rdquo; doesn&apos;t find you ₱1,000 in potential savings in your first 30 days of Pro 
-                (after 40 entries), your next month is free. No questions asked.
+                If &ldquo;Piso&rdquo; doesn&apos;t find you at least ₱1,000 in savings opportunities 
+                within your first 30 days of Pro (minimum 40 transactions tracked), 
+                we&apos;ll refund your first month. Guaranteed.
               </p>
             </div>
           </div>
