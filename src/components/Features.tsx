@@ -1,4 +1,4 @@
-import { Camera, Sparkles, MessageCircle, Shield } from "lucide-react";
+import { Camera, Sparkles, MessageCircle, Mic } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 const features = [
@@ -33,13 +33,13 @@ const features = [
     gifUrl: "https://res.cloudinary.com/dbylka4xx/image/upload/v1761793071/PisoAnalysis_w0h9ej.gif",
   },
   {
-    badge: "SECURITY",
-    icon: Shield,
-    title: "Your data stays ",
-    titleAccent: "private",
-    description: "Check your spending from anywhere—home, office, or commute. Your financial data is locked down tight, only you can see it.",
-    details: "Sign in safely with Google. Your data is encrypted and secure. Access from any device, anytime.",
-    mockupPlaceholder: "🔒 Security Dashboard",
+    badge: "FLEXIBLE INPUT",
+    icon: Mic,
+    title: "3 ways to capture: ",
+    titleAccent: "Camera, Voice, or Type",
+    description: "Snap a receipt photo, speak your expense while commuting, or quickly type it in. ResiboKo adapts to your situation—whether you have a receipt or not, whether you're in a rush or relaxed.",
+    details: "Camera capture for receipts. Voice recording works even in noisy jeepneys. Manual entry takes 5 seconds. Smart presets remember common expenses. Choose what fits the moment.",
+    mockupPlaceholder: "🎤 Flexible Capture Methods",
     gifUrl: "https://res.cloudinary.com/dbylka4xx/image/upload/v1761793067/CaptureExpenses2_wwfznx.gif",
   },
 ];
