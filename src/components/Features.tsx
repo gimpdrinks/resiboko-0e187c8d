@@ -10,6 +10,7 @@ const features = [
     description: "Tired of pockets full of crumpled resibos? Just snap a photo or say it out loud. Done in 3 seconds.",
     details: "Take a photo, use your voice, or tap a preset. Works even without receipts.",
     mockupPlaceholder: "📸 Receipt Capture Flow",
+    gifUrl: "https://res.cloudinary.com/dbylka4xx/image/upload/v1761791781/Captureexpenses_ctbrpi.gif",
   },
   {
     badge: "AUTO-ORGANIZE",
@@ -88,16 +89,26 @@ const Features = () => {
                   </p>
                 </div>
 
-                {/* GIF Placeholder */}
+                {/* GIF or Placeholder */}
                 <div className="flex-1 w-full">
-                  <div className="aspect-video bg-muted/30 rounded-2xl border-2 border-dashed border-muted-foreground/20 flex items-center justify-center">
-                    <div className="text-center px-4">
-                      <div className="text-6xl mb-4">{feature.mockupPlaceholder.split(' ')[0]}</div>
-                      <p className="text-sm text-muted-foreground font-medium">
-                        {feature.mockupPlaceholder.substring(feature.mockupPlaceholder.indexOf(' ') + 1)}
-                      </p>
+                  {feature.gifUrl ? (
+                    <div className="aspect-video rounded-2xl overflow-hidden shadow-lg border border-muted">
+                      <img 
+                        src={feature.gifUrl} 
+                        alt={`${feature.title}${feature.titleAccent} demonstration`}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
-                  </div>
+                  ) : (
+                    <div className="aspect-video bg-muted/30 rounded-2xl border-2 border-dashed border-muted-foreground/20 flex items-center justify-center">
+                      <div className="text-center px-4">
+                        <div className="text-6xl mb-4">{feature.mockupPlaceholder.split(' ')[0]}</div>
+                        <p className="text-sm text-muted-foreground font-medium">
+                          {feature.mockupPlaceholder.substring(feature.mockupPlaceholder.indexOf(' ') + 1)}
+                        </p>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             );
