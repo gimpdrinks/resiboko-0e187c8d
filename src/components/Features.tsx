@@ -13,6 +13,16 @@ const features = [
     gifUrl: "https://res.cloudinary.com/dbylka4xx/image/upload/v1761791781/Captureexpenses_ctbrpi.gif",
   },
   {
+    badge: "FLEXIBLE INPUT",
+    icon: Mic,
+    title: "3 ways to capture: ",
+    titleAccent: "Camera, Voice, or Type",
+    description: "Snap a receipt photo, speak your expense while commuting, or quickly type it in. ResiboKo adapts to your situation—whether you have a receipt or not, whether you're in a rush or relaxed.",
+    details: "Camera capture for receipts. Voice recording works even in noisy jeepneys. Manual entry takes 5 seconds. Smart presets remember common expenses. Choose what fits the moment.",
+    mockupPlaceholder: "🎤 Flexible Capture Methods",
+    gifUrl: "https://res.cloudinary.com/dbylka4xx/image/upload/v1761793067/CaptureExpenses2_wwfznx.gif",
+  },
+  {
     badge: "AUTO-ORGANIZE",
     icon: Sparkles,
     title: "See where every peso ",
@@ -31,16 +41,6 @@ const features = [
     details: "Piso proactively finds wasteful fees, expensive habits, and better alternatives. Plus, chat in English, Tagalog, or Taglish to ask anything: 'How much did I spend on food?' or 'Can I afford that gadget?' Instant, easy answers.",
     mockupPlaceholder: "💬 AI Chat Interface",
     gifUrl: "https://res.cloudinary.com/dbylka4xx/image/upload/v1761793071/PisoAnalysis_w0h9ej.gif",
-  },
-  {
-    badge: "FLEXIBLE INPUT",
-    icon: Mic,
-    title: "3 ways to capture: ",
-    titleAccent: "Camera, Voice, or Type",
-    description: "Snap a receipt photo, speak your expense while commuting, or quickly type it in. ResiboKo adapts to your situation—whether you have a receipt or not, whether you're in a rush or relaxed.",
-    details: "Camera capture for receipts. Voice recording works even in noisy jeepneys. Manual entry takes 5 seconds. Smart presets remember common expenses. Choose what fits the moment.",
-    mockupPlaceholder: "🎤 Flexible Capture Methods",
-    gifUrl: "https://res.cloudinary.com/dbylka4xx/image/upload/v1761793067/CaptureExpenses2_wwfznx.gif",
   },
 ];
 
