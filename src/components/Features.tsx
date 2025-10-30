@@ -20,6 +20,7 @@ const features = [
     description: "No more Excel headaches or calculator stress. Everything's automatically sorted so you can see exactly where every peso goes.",
     details: "Automatic sorting by category. View all your spending in one place. Updates instantly across your devices.",
     mockupPlaceholder: "📊 Expense Dashboard",
+    gifUrl: "https://res.cloudinary.com/dbylka4xx/image/upload/v1761793068/PesoGoes_wjnase.gif",
   },
   {
     badge: "AI INSIGHTS",
@@ -29,6 +30,7 @@ const features = [
     description: "Meet Piso, your AI-powered financial analyst. Spending ₱500/week on fees you don't notice? Buying expensive snacks out of habit? Piso spots these leaks automatically AND answers your money questions in seconds—no math needed.",
     details: "Piso proactively finds wasteful fees, expensive habits, and better alternatives. Plus, chat in English, Tagalog, or Taglish to ask anything: 'How much did I spend on food?' or 'Can I afford that gadget?' Instant, easy answers.",
     mockupPlaceholder: "💬 AI Chat Interface",
+    gifUrl: "https://res.cloudinary.com/dbylka4xx/image/upload/v1761793071/PisoAnalysis_w0h9ej.gif",
   },
   {
     badge: "SECURITY",
@@ -38,6 +40,7 @@ const features = [
     description: "Check your spending from anywhere—home, office, or commute. Your financial data is locked down tight, only you can see it.",
     details: "Sign in safely with Google. Your data is encrypted and secure. Access from any device, anytime.",
     mockupPlaceholder: "🔒 Security Dashboard",
+    gifUrl: "https://res.cloudinary.com/dbylka4xx/image/upload/v1761793067/CaptureExpenses2_wwfznx.gif",
   },
 ];
 
