@@ -2,50 +2,29 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Check, Zap, Crown, Sparkles } from "lucide-react";
-
-const freePlanFeatures = [
-  "30 AI Scans/month (photo/voice)",
-  "Manual Entry",
-  "Transaction History",
-  "Daily/Weekly Summaries",
-];
-
-const proPlanFeatures = [
-  "60+ AI Scans/month",
-  "Unlimited AI Q&A (\"Ask Piso\")",
-  "Automated \"Tipid Opportunity\" Audits",
-  "CSV Export",
-  "Google Sheets Sync (Coming Soon)",
-  "Priority Support",
-];
-
-const pricingTiers = [
-  {
-    name: "Monthly",
-    price: "₱199",
-    period: "/month",
-    savings: null,
-  },
-  {
-    name: "Annual",
-    price: "₱1,788",
-    period: "/year",
-    savings: "Save ₱600",
-    popular: true,
-  },
-  {
-    name: "Lifetime",
-    price: "₱4,999",
-    period: "one-time",
-    savings: "Launch Special!",
-  },
-];
-
+const freePlanFeatures = ["30 AI Scans/month (photo/voice)", "Manual Entry", "Transaction History", "Daily/Weekly Summaries"];
+const proPlanFeatures = ["60+ AI Scans/month", "Unlimited AI Q&A (\"Ask Piso\")", "Automated \"Tipid Opportunity\" Audits", "CSV Export", "Google Sheets Sync (Coming Soon)", "Priority Support"];
+const pricingTiers = [{
+  name: "Monthly",
+  price: "₱199",
+  period: "/month",
+  savings: null
+}, {
+  name: "Annual",
+  price: "₱1,788",
+  period: "/year",
+  savings: "Save ₱600",
+  popular: true
+}, {
+  name: "Lifetime",
+  price: "₱4,999",
+  period: "one-time",
+  savings: "Launch Special!"
+}];
 const Pricing = () => {
   const [selectedTier, setSelectedTier] = React.useState<number>(1); // Default to Annual
 
-  return (
-    <section id="pricing" className="py-20 bg-secondary" aria-labelledby="pricing-heading">
+  return <section id="pricing" className="py-20 bg-secondary" aria-labelledby="pricing-heading">
       <div className="container px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 id="pricing-heading" className="text-4xl font-bold text-foreground mb-4">
@@ -75,12 +54,10 @@ const Pricing = () => {
             </div>
 
             <ul className="space-y-3 mb-8">
-              {freePlanFeatures.map((feature, index) => (
-                <li key={index} className="flex items-start gap-3">
+              {freePlanFeatures.map((feature, index) => <li key={index} className="flex items-start gap-3">
                   <Check className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
                   <span className="text-foreground">{feature}</span>
-                </li>
-              ))}
+                </li>)}
             </ul>
 
             <Button variant="outline" className="w-full" size="lg" aria-label="Start with free plan">
@@ -108,46 +85,28 @@ const Pricing = () => {
 
             {/* Pricing Tiers Toggle */}
             <div className="grid grid-cols-3 gap-2 mb-6">
-              {pricingTiers.map((tier, index) => (
-                <div 
-                  key={index}
-                  onClick={() => setSelectedTier(index)}
-                  role="button"
-                  tabIndex={0}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      e.preventDefault();
-                      setSelectedTier(index);
-                    }
-                  }}
-                  aria-pressed={selectedTier === index}
-                  className={`text-center p-3 rounded-lg border-2 transition-all cursor-pointer ${
-                    selectedTier === index
-                      ? 'border-accent bg-accent/10 shadow-lg scale-105' 
-                      : 'border-border bg-background hover:border-accent/30 hover:shadow-md'
-                  }`}
-                >
+              {pricingTiers.map((tier, index) => <div key={index} onClick={() => setSelectedTier(index)} role="button" tabIndex={0} onKeyDown={e => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                setSelectedTier(index);
+              }
+            }} aria-pressed={selectedTier === index} className={`text-center p-3 rounded-lg border-2 transition-all cursor-pointer ${selectedTier === index ? 'border-accent bg-accent/10 shadow-lg scale-105' : 'border-border bg-background hover:border-accent/30 hover:shadow-md'}`}>
                   <div className="text-xs font-medium text-muted-foreground mb-1">
                     {tier.name}
                   </div>
                   <div className="text-lg font-bold text-foreground">{tier.price}</div>
                   <div className="text-xs text-muted-foreground">{tier.period}</div>
-                  {tier.savings && (
-                    <div className="text-xs font-semibold text-accent mt-1">
+                  {tier.savings && <div className="text-xs font-semibold text-accent mt-1">
                       {tier.savings}
-                    </div>
-                  )}
-                </div>
-              ))}
+                    </div>}
+                </div>)}
             </div>
 
             <ul className="space-y-3 mb-8">
-              {proPlanFeatures.map((feature, index) => (
-                <li key={index} className="flex items-start gap-3">
+              {proPlanFeatures.map((feature, index) => <li key={index} className="flex items-start gap-3">
                   <Check className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
                   <span className="text-foreground font-medium">{feature}</span>
-                </li>
-              ))}
+                </li>)}
             </ul>
 
             <Button variant="accent" className="w-full" size="lg" aria-label={`Upgrade to Pro plan - ${pricingTiers[selectedTier].name}`}>
@@ -164,17 +123,11 @@ const Pricing = () => {
             </div>
             <div>
               <h4 className="text-xl font-bold text-foreground mb-2">Our Guarantee</h4>
-              <p className="text-muted-foreground">
-                If &ldquo;Piso&rdquo; doesn&apos;t find you at least ₱1,000 in savings opportunities 
-                within your first 30 days of Pro (minimum 40 transactions tracked), 
-                we&apos;ll refund your first month. Guaranteed.
-              </p>
+              <p className="text-muted-foreground">If  AI“Piso” Financial Analyst doesn't find you at least ₱1,000 in savings opportunities within your first 30 days of Pro (minimum 40 transactions tracked), we'll refund your first month. Guaranteed.</p>
             </div>
           </div>
         </Card>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Pricing;
