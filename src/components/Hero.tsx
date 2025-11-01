@@ -102,7 +102,7 @@ const Hero = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-accent/20 to-transparent pointer-events-none" aria-hidden="true"></div>
             </div>
             {/* Floating stats card */}
-            <div className="absolute -bottom-6 -left-6 bg-white rounded-xl p-4 shadow-xl hidden md:block">
+            <div className="absolute -top-6 -right-6 bg-white rounded-xl p-4 shadow-xl hidden md:block">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center">
                   <Sparkles className="w-6 h-6 text-white" />
